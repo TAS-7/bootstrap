@@ -5,9 +5,9 @@ import ScrollBarHelper from '../../../src/util/scrollbar'
 describe('ScrollBar', () => {
   let fixtureEl
   const doc = document.documentElement
-  const parseInt = arg => Number.parseInt(arg, 10)
-  const getPaddingX = el => parseInt(window.getComputedStyle(el).paddingRight)
-  const getMarginX = el => parseInt(window.getComputedStyle(el).marginRight)
+  const parseIntDecimal = arg => Number.parseInt(arg, 10)
+  const getPaddingX = el => parseIntDecimal(window.getComputedStyle(el).paddingRight)
+  const getMarginX = el => parseIntDecimal(window.getComputedStyle(el).marginRight)
   const getOverFlow = el => el.style.overflow
   const getPaddingAttr = el => Manipulator.getDataAttribute(el, 'padding-right')
   const getMarginAttr = el => Manipulator.getDataAttribute(el, 'margin-right')
@@ -247,7 +247,7 @@ describe('ScrollBar', () => {
         el.style.paddingRight = inlineStylePadding
 
         const originalPadding = getPaddingX(el)
-        expect(originalPadding).toBe(parseInt(inlineStylePadding)) // Respect only the inline style as it has prevails this of css
+        expect(originalPadding).toBe(parseIntDecimal(inlineStylePadding)) // Respect only the inline style as it has prevails this of css
         const originalOverFlow = 'auto'
         el.style.overflow = originalOverFlow
         const scrollBar = new ScrollBarHelper()
@@ -258,7 +258,7 @@ describe('ScrollBar', () => {
         const currentPadding = getPaddingX(el)
 
         expect(currentPadding).toBe(scrollBarWidth + originalPadding)
-        expect(currentPadding).toBe(scrollBarWidth + parseInt(inlineStylePadding))
+        expect(currentPadding).toBe(scrollBarWidth + parseIntDecimal(inlineStylePadding))
         expect(getPaddingAttr(el)).toBe(inlineStylePadding)
         expect(getOverFlow(el)).toBe('hidden')
         expect(getOverFlowAttr(el)).toBe(originalOverFlow)
@@ -293,7 +293,7 @@ describe('ScrollBar', () => {
         const currentPadding = getPaddingX(el)
 
         expect(currentPadding).toBe(scrollBarWidth + originalPadding)
-        expect(currentPadding).toBe(scrollBarWidth + parseInt(styleSheetPadding))
+        expect(currentPadding).toBe(scrollBarWidth + parseIntDecimal(styleSheetPadding))
         expect(getPaddingAttr(el)).toBeNull() // We do not have to keep css padding
         expect(getOverFlow(el)).toBe('hidden')
         expect(getOverFlowAttr(el)).toBe(originalOverFlow)
