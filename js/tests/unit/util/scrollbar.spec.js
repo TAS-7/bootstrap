@@ -24,7 +24,9 @@ describe('ScrollBar', () => {
     }
   }
 
-  const isScrollBarHidden = () => { // IOS devices, Android devices and Browsers on Mac, hide scrollbar by default and appear it, only while scrolling. So the tests for scrollbar would fail
+  // iOS, Android devices and macOS browsers hide scrollbar by default and show it only while scrolling.
+  // So the tests for scrollbar would fail
+  const isScrollBarHidden = () => {
     const calc = windowCalculations()
     return calc.htmlClient === calc.htmlOffset && calc.htmlClient === calc.window
   }
@@ -52,9 +54,7 @@ describe('ScrollBar', () => {
     it('should return true if body is overflowing', () => {
       document.documentElement.style.overflowY = 'scroll'
       document.body.style.overflowY = 'scroll'
-      fixtureEl.innerHTML = [
-        '<div style="height: 110vh; width: 100%"></div>'
-      ].join('')
+      fixtureEl.innerHTML = '<div style="height: 110vh; width: 100%"></div>'
       const result = new ScrollBarHelper().isOverflowing()
 
       if (isScrollBarHidden()) {
@@ -67,9 +67,7 @@ describe('ScrollBar', () => {
     it('should return false if body is not overflowing', () => {
       doc.style.overflowY = 'hidden'
       document.body.style.overflowY = 'hidden'
-      fixtureEl.innerHTML = [
-        '<div style="height: 110vh; width: 100%"></div>'
-      ].join('')
+      fixtureEl.innerHTML = '<div style="height: 110vh; width: 100%"></div>'
       const scrollBar = new ScrollBarHelper()
       const result = scrollBar.isOverflowing()
 
@@ -81,9 +79,7 @@ describe('ScrollBar', () => {
     it('should return an integer greater than zero, if body is overflowing', () => {
       doc.style.overflowY = 'scroll'
       document.body.style.overflowY = 'scroll'
-      fixtureEl.innerHTML = [
-        '<div style="height: 110vh; width: 100%"></div>'
-      ].join('')
+      fixtureEl.innerHTML = '<div style="height: 110vh; width: 100%"></div>'
       const result = new ScrollBarHelper().getWidth()
 
       if (isScrollBarHidden()) {
@@ -96,9 +92,7 @@ describe('ScrollBar', () => {
     it('should return 0 if body is not overflowing', () => {
       document.documentElement.style.overflowY = 'hidden'
       document.body.style.overflowY = 'hidden'
-      fixtureEl.innerHTML = [
-        '<div style="height: 110vh; width: 100%"></div>'
-      ].join('')
+      fixtureEl.innerHTML = '<div style="height: 110vh; width: 100%"></div>'
 
       const result = new ScrollBarHelper().getWidth()
 
@@ -243,7 +237,7 @@ describe('ScrollBar', () => {
         fixtureEl.innerHTML = [
           '<style>',
           '  body {',
-          `       padding-right: ${styleSheetPadding} }`,
+          `    padding-right: ${styleSheetPadding}`,
           '  }',
           '</style>'
         ].join('')
@@ -283,7 +277,7 @@ describe('ScrollBar', () => {
         fixtureEl.innerHTML = [
           '<style>',
           '  body {',
-          `       padding-right: ${styleSheetPadding} }`,
+          `    padding-right: ${styleSheetPadding}`,
           '  }',
           '</style>'
         ].join('')

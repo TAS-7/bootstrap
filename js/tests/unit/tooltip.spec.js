@@ -1201,7 +1201,7 @@ describe('Tooltip', () => {
 
       const content = [
         '<div id="childContent">',
-        ' <button type="button">test btn</button>',
+        '  <button type="button">test btn</button>',
         '</div>'
       ].join('')
 

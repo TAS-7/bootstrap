@@ -117,7 +117,7 @@ describe('TemplateFactory', () => {
         '<div class="foo"></div>' +
         '<div class="foo2"></div>' +
         '</div>'
-      ].join(' ')
+      ].join('')
 
       const factory = new TemplateFactory({
         template,
@@ -252,7 +252,7 @@ describe('TemplateFactory', () => {
         '<div class="foo"></div>' +
         '<div class="foo2"></div>' +
         '</div>'
-      ].join(' ')
+      ].join('')
 
       const factory = new TemplateFactory({
         template,
@@ -280,7 +280,7 @@ describe('TemplateFactory', () => {
         '<div class="foo"></div>' +
         '<div class="foo2"></div>' +
         '</div>'
-      ].join(' ')
+      ].join('')
 
       const factory = new TemplateFactory({
         template,
