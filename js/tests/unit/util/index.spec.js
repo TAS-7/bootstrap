@@ -532,7 +532,7 @@ describe('Util', () => {
 
   describe('noop', () => {
     it('should be a function', () => {
-      expect(typeof Util.noop).toBe('function')
+      expect(Util.noop).toEqual(jasmine.any(Function))
     })
   })
 
@@ -630,7 +630,7 @@ describe('Util', () => {
       Util.defineJQueryPlugin(pluginMock)
       expect(fakejQuery.fn.test).toBe(pluginMock.jQueryInterface)
       expect(fakejQuery.fn.test.Constructor).toBe(pluginMock)
-      expect(typeof fakejQuery.fn.test.noConflict).toBe('function')
+      expect(fakejQuery.fn.test.noConflict).toEqual(jasmine.any(Function))
     })
   })
 

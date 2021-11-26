@@ -195,7 +195,7 @@ describe('Offcanvas', () => {
       spyOn(offCanvas._backdrop._config, 'clickCallback').and.callThrough()
 
       offCanvasEl.addEventListener('shown.bs.offcanvas', () => {
-        expect(typeof offCanvas._backdrop._config.clickCallback).toBe('function')
+        expect(offCanvas._backdrop._config.clickCallback).toEqual(jasmine.any(Function))
 
         offCanvas._backdrop._getElement().dispatchEvent(clickEvent)
       })

@@ -1491,8 +1491,8 @@ describe('Dropdown', () => {
         triggerDropdown.dispatchEvent(keydown)
 
         expect(document.activeElement).not.toHaveClass('d-none')
-        expect(document.activeElement.style.display).not.toBe('none', '"display: none" not focused')
-        expect(document.activeElement.style.visibility).not.toBe('hidden', '"visibility: hidden" not focused')
+        expect(document.activeElement.style.display).not.toBe('none')
+        expect(document.activeElement.style.visibility).not.toBe('hidden')
 
         done()
       })

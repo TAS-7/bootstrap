@@ -137,7 +137,7 @@ describe('Tooltip', () => {
 
       const offset = tooltip._getOffset()
 
-      expect(typeof offset).toBe('function')
+      expect(offset).toEqual(jasmine.any(Function))
 
       tooltip.show()
     })
